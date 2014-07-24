@@ -42,6 +42,14 @@ companies.open('./company_data', function() {
     });
   });
 });
+
+// Output:
+//
+// [ { name: 'Spotify', founded_year: 2006, worth: '$183M' },
+//  { name: 'TripIt', founded_year: 2006, worth: '$13.1M' },
+//  { name: 'Twitter', founded_year: 2006, worth: '$1.16B' },
+//  { name: 'Digg', founded_year: 2004, worth: '$45M' },
+//  { name: 'Postini', founded_year: 1999, worth: '$0' } ]
 ```
 
 ## Usage
