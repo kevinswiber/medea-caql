@@ -1,15 +1,15 @@
 {
   "name": "medea-caql",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Adds CaQL query support to Medea.",
   "main": "querify.js",
   "dependencies": {
-    "caql": "~0.1.0",
-    "caql-js-compiler": "~0.0.1",
-    "medea": "~0.1.0",
-    "mongodb": "~1.4.7"
+    "caql-js-compiler": "~0.0.1"
   },
   "devDependencies": {},
+  "peerDependencies": {
+    "medea": "*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
