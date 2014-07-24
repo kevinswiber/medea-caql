@@ -191,3 +191,63 @@ JSCompiler.prototype.addFilter = function(predicate) {
     this.filter.unshift(cur);
   }
 };
+
+JSCompiler.prototype.map = function(values) {
+  return values.map(this.mapOne);
+};
+
+JSCompiler.prototype.mapOne = function(value) {
+  var match = true;
+
+  for (var i = 0; i < this.filter.length; i++) {
+    match = this.filter[i](value);
+    if (!match) {
+      break;
+    }
+  }
+
+  if (match) {
+    if (!this.fields.length
+        || this.fields[0] === '*'
+        || this.fields[0].name === '*') {
+      return value;
+    }
+
+    var result = {};
+    this.fields.forEach(function(field) {
+      var name = field.alias || field.name;
+      result[name] = value[field.name];
+    });
+
+    return result;
+  }
+};
+
+JSCompiler.prototype.reduce = function(values) {
+  this.sorts.reverse().forEach(function(sort) {
+    values = values.sort(function(a, b) {
+      var field = sort.field;
+      var direction = sort.direction;
+      
+      if (direction === 'asc') {
+        if (a[field] < b[field]) {
+          return -1;
+        } else if (a[field] > b[field]) {
+          return 1;
+        }
+
+        return 0;
+      } else if (direction === 'desc') {
+        if (a[field] < b[field]) {
+          return 1;
+        } else if (a[field] > b[field]) {
+          return -1;
+        }
+
+        return 0;
+      }
+    });
+  });
+
+  return values;
+};
