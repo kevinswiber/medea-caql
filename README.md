@@ -1,5 +1,16 @@
+# medea-caql
+
+Add query functionality to Medea.
+
+## Install
+
+`npm install medea-caql`
+
+## Example
+
+```js
 var medea = require('medea');
-require('./querify')(medea);
+require('medea-caql')(medea);
 
 var companies = medea();
 
@@ -31,3 +42,20 @@ companies.open('./company_data', function() {
     });
   });
 });
+```
+
+## Usage
+
+The `medea-caql` module acts as a mix-in, adding the `find` function to `Medea.prototype`.
+
+### db.find(query, callback)
+
+Executes a query over a Medea database. Entries must be stringified JSON (for now). 
+
+`query`: A valid CaQL query string.  Learn more: [Calypso Query Language Specification](https://github.com/kevinswiber/caql).
+
+`callback`: A function that takes two parameters: `err` and `results`.  The `results` parameter is an array with objects found in the database.
+
+## License
+
+MIT
