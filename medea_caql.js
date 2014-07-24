@@ -1,4 +1,4 @@
-var JSCompiler = require('./compiler');
+var JSCompiler = require('caql-js-compiler');
 
 module.exports = function(Medea) {
   Medea.prototype.find = function(query, cb) {
@@ -9,12 +9,12 @@ module.exports = function(Medea) {
     var options = {
       map: function(key, value, emit) {
         var result;
-        if (result = compiler.mapOne(JSON.parse(value.toString()))) {
+        if (result = compiler.filterOne(JSON.parse(value.toString()))) {
           emit('value', result);
         };
       },
       reduce: function reduce(key, values) {
-        return compiler.reduce(values);
+        return compiler.sort(values);
       }
     };
 
@@ -22,4 +22,6 @@ module.exports = function(Medea) {
       cb(null, values || []);
     });
   };
+
+  return Medea;
 };
