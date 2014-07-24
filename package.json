@@ -1,0 +1,32 @@
+{
+  "name": "medea-caql",
+  "version": "0.0.1",
+  "description": "Adds CaQL query support to Medea.",
+  "main": "querify.js",
+  "dependencies": {
+    "caql": "~0.1.0",
+    "caql-js-compiler": "~0.0.1",
+    "medea": "~0.1.0",
+    "mongodb": "~1.4.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kevinswiber/medea-caql.git"
+  },
+  "keywords": [
+    "caql",
+    "query",
+    "medea",
+    "database"
+  ],
+  "author": "Kevin Swiber <kswiber@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinswiber/medea-caql/issues"
+  },
+  "homepage": "https://github.com/kevinswiber/medea-caql"
+}
