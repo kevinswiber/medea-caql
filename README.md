@@ -1,6 +1,6 @@
 # medea-caql
 
-Add query functionality to Medea.
+Adds query functionality to Medea.
 
 ## Install
 
